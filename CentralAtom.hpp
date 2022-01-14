@@ -9,13 +9,19 @@ class CentralAtom {
         AtomNode *flat2;
         AtomNode *dashed;
         AtomNode *wedged;
-    public:
-        CentralAtom();
-        ~CentralAtom();
         void setFlat1(const std::string& symbol);
         void setFlat2(const std::string& symbol);
         void setDashed(const std::string& symbol);
         void setWedged(const std::string& symbol);
+    public:
+        CentralAtom();
+        ~CentralAtom();
+        void buildAtom(
+            const std::string& flat1,
+            const std::string& flat2,
+            const std::string& dashed,
+            const std::string& wedged
+        );
 };
 
 CentralAtom::CentralAtom() {
@@ -48,5 +54,16 @@ void CentralAtom::setWedged(const std::string& symbol) {
     wedged = new AtomNode(symbol);
 }
 
+void CentralAtom::buildAtom(
+            const std::string& flat1,
+            const std::string& flat2,
+            const std::string& dashed,
+            const std::string& wedged
+        ) {
+            setFlat1(flat1);
+            setFlat2(flat2);
+            setDashed(dashed);
+            setWedged(wedged);
+        }
 
 #endif
