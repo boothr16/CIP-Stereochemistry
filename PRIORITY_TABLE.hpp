@@ -4,7 +4,7 @@
 #include <unordered_map>
 #include <string>
 
-std::unordered_map<std::string, const int> PRIORITY_TABLE = {
+std::unordered_map<std::string, int> PRIORITY_TABLE = {
     {"H", 1},
     {"C", 12},
     {"N", 14},
