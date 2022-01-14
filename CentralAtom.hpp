@@ -2,13 +2,14 @@
 #define CENTRALATOM_HPP
 
 #include <string>
+#include "AtomNode.hpp"
 
 class CentralAtom {
     private:
-        std::string flat1;
-        std::string flat2;
-        std::string dashed;
-        std::string wedged;
+        AtomNode *flat1;
+        AtomNode *flat2;
+        AtomNode *dashed;
+        AtomNode *wedged;
     public:
         CentralAtom();
         void setFlat1(const std::string& symbol);
