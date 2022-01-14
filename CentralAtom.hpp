@@ -16,7 +16,7 @@ class CentralAtom {
     public:
         CentralAtom();
         ~CentralAtom();
-        void buildAtom(
+        void buildBonds(
             const std::string& flat1,
             const std::string& flat2,
             const std::string& dashed,
@@ -54,7 +54,7 @@ void CentralAtom::setWedged(const std::string& symbol) {
     wedged = new AtomNode(symbol);
 }
 
-void CentralAtom::buildAtom(
+void CentralAtom::buildBonds(
             const std::string& flat1,
             const std::string& flat2,
             const std::string& dashed,
