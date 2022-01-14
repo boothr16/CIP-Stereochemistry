@@ -1,7 +1,9 @@
 #ifndef CENTRALATOM_HPP
 #define CENTRALATOM_HPP
 
+#include <queue>
 #include "AtomNode.hpp"
+#include "ATOM_COMPARATOR.hpp"
 
 class CentralAtom {
     private:
@@ -13,6 +15,9 @@ class CentralAtom {
         void setFlat2(const std::string& symbol);
         void setDashed(const std::string& symbol);
         void setWedged(const std::string& symbol);
+
+        std::priority_queue<AtomNode, std::vector<AtomNode>,
+        ATOM_COMPARATOR> pq;
     public:
         CentralAtom();
         ~CentralAtom();
@@ -40,18 +45,22 @@ CentralAtom::~CentralAtom() {
 
 void CentralAtom::setFlat1(const std::string& symbol) {
     flat1 = new AtomNode(symbol);
+    pq.push(*flat1);
 }
 
 void CentralAtom::setFlat2(const std::string& symbol) {
     flat2 = new AtomNode(symbol);
+    pq.push(*flat2);
 }
 
 void CentralAtom::setDashed(const std::string& symbol) {
     dashed = new AtomNode(symbol);
+    pq.push(*dashed);
 }
 
 void CentralAtom::setWedged(const std::string& symbol) {
     wedged = new AtomNode(symbol);
+    pq.push(*wedged);
 }
 
 void CentralAtom::buildBonds(

@@ -11,7 +11,7 @@ class ATOM_COMPARATOR {
         );
 };
 
-int ATOM_COMPARATOR::operator(
+int ATOM_COMPARATOR::operator() (
     const AtomNode &a1,
     const AtomNode &a2
 ) {
