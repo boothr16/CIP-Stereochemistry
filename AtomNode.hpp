@@ -5,18 +5,18 @@
 
 class AtomNode {
     private:
-        const int prio;
+        int prio;
     public:
         AtomNode();
         AtomNode(const std::string &element);
-        getPriority();
+        int getPriority();
 };
 
 AtomNode::AtomNode() : prio(-1) {}
 AtomNode::AtomNode(const std::string &element) {
     prio = PRIORITY_TABLE[element];
 }
-AtomNode::getPriority() {
+int AtomNode::getPriority() {
     return prio;
 }
 #endif
