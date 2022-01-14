@@ -1,6 +1,6 @@
 #include <iostream>
-#include <string>
 #include "PRIORITY_TABLE.hpp"
+#include "CentralAtom.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
         << " <wedged atom>\n";
         return 1;
     }
+    CentralAtom center;
     for (int i = 1; i < argc; i++) {
         std::string atom = argv[i];
         if (PRIORITY_TABLE.count(atom) == 0) {
