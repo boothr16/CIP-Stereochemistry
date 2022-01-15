@@ -5,6 +5,7 @@
 #include <iostream>
 #include "AtomNode.hpp"
 #include "ATOM_COMPARATOR.hpp"
+#include "TrigonalProjection.hpp"
 
 class CentralAtom {
     private:
@@ -17,7 +18,6 @@ class CentralAtom {
         std::priority_queue<AtomNode*, std::vector<AtomNode*>,
         ATOM_COMPARATOR> pq;
         // For providing 2D abstraction
-        struct TrigonalProjection;
     public:
         CentralAtom();
         ~CentralAtom();
@@ -78,13 +78,5 @@ AtomNode* CentralAtom::getMinPriorityAtom() const {
         return nullptr;
     return pq.top();
 }
-
-// Abstraction for mapping 3D to 2D projection
-struct CentralAtom::TrigonalProjection {
-    AtomNode* top, left, right;
-    TrigonalProjection(AtomNode *minAtom) {
-
-    }
-};
 
 #endif
