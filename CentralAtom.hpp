@@ -17,7 +17,6 @@ class CentralAtom {
         // For O(1) access to least priority atom
         std::priority_queue<AtomNode*, std::vector<AtomNode*>,
         ATOM_COMPARATOR> pq;
-        // For providing 2D abstraction
     public:
         CentralAtom();
         ~CentralAtom();
@@ -27,7 +26,7 @@ class CentralAtom {
             const std::string& wedged,
             const std::string& dashed
         );
-        AtomNode* getMinPriorityAtom() const;
+        AtomNode* getMinPriorityAtom() const;  
 };
 
 CentralAtom::CentralAtom() {

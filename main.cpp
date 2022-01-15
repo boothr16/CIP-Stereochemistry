@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
         }
     }
     center.buildBonds(argv[1], argv[2], argv[3], argv[4]);
-    center.getMinPriorityAtom();
+    AtomNode *minAtom = center.getMinPriorityAtom();
+    // TODO: throw exception for minAtom == nullptr. Write rotate method and determine stereochemistry.
     return 0;
 }
