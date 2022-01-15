@@ -24,5 +24,6 @@ int main(int argc, char *argv[])
     center.buildBonds(argv[1], argv[2], argv[3], argv[4]);
     // TODO: throw exception for minAtom == nullptr. Write rotate method and determine stereochemistry.
     TrigonalProjection tp(&center);
+    std::cout << tp.GET_STEREOCHEMISTRY(&center);
     return 0;
 }
