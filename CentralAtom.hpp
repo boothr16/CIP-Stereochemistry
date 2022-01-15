@@ -8,10 +8,7 @@
 
 class CentralAtom {
     private:
-        AtomNode *flat1;
-        AtomNode *flat2;
-        AtomNode *dashed;
-        AtomNode *wedged;
+        AtomNode *flat1, *flat2, *wedged, *dashed;
         void setFlat1(const std::string& symbol);
         void setFlat2(const std::string& symbol);
         void setDashed(const std::string& symbol);
@@ -27,8 +24,8 @@ class CentralAtom {
         void buildBonds(
             const std::string& flat1,
             const std::string& flat2,
-            const std::string& dashed,
-            const std::string& wedged
+            const std::string& wedged,
+            const std::string& dashed
         );
         AtomNode* getMinPriorityAtom() const;
 };
@@ -68,11 +65,11 @@ void CentralAtom::setWedged(const std::string& symbol) {
 }
 
 void CentralAtom::buildBonds(const std::string& flat1, 
-const std::string& flat2, const std::string& dashed, const std::string& wedged) {
+const std::string& flat2, const std::string& wedged, const std::string& dashed) {
     setFlat1(flat1);
     setFlat2(flat2);
-    setDashed(dashed);
-    setWedged(wedged);
+    setDashed(wedged);
+    setWedged(dashed);
 }
 
 // Return pointer to min prio atom
@@ -84,7 +81,10 @@ AtomNode* CentralAtom::getMinPriorityAtom() const {
 
 // Abstraction for mapping 3D to 2D projection
 struct CentralAtom::TrigonalProjection {
-    TrigonalProjection(AtomNode *minAtom)
-}
+    AtomNode* top, left, right;
+    TrigonalProjection(AtomNode *minAtom) {
+
+    }
+};
 
 #endif
