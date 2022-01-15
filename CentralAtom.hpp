@@ -19,6 +19,8 @@ class CentralAtom {
         // For O(1) access to least priority atom
         std::priority_queue<AtomNode*, std::vector<AtomNode*>,
         ATOM_COMPARATOR> pq;
+        // For providing 2D abstraction
+        struct TrigonalProjection;
     public:
         CentralAtom();
         ~CentralAtom();
@@ -75,8 +77,14 @@ const std::string& flat2, const std::string& dashed, const std::string& wedged) 
 
 // Return pointer to min prio atom
 AtomNode* CentralAtom::getMinPriorityAtom() const {
+    if (pq.top()->getPriority() == -1)
+        return nullptr;
     return pq.top();
 }
 
+// Abstraction for mapping 3D to 2D projection
+struct CentralAtom::TrigonalProjection {
+    TrigonalProjection(AtomNode *minAtom)
+}
 
 #endif
