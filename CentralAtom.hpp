@@ -5,7 +5,6 @@
 #include <iostream>
 #include "AtomNode.hpp"
 #include "ATOM_COMPARATOR.hpp"
-#include "TrigonalProjection.hpp"
 
 class CentralAtom {
     private:
