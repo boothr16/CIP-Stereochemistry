@@ -79,6 +79,7 @@ AtomNode* CentralAtom::getMinPriorityAtom() {
     if (pq.top()->getPriority() == -1)
         return nullptr;
     AtomNode *minAtom = pq.top();
+    pq.pop();
     return minAtom;
 }
 
