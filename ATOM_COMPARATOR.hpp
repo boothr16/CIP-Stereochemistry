@@ -6,16 +6,16 @@
 class ATOM_COMPARATOR {
     public:
         int operator() (
-            const AtomNode &a1,
-            const AtomNode &a2
+            AtomNode *a1,
+            AtomNode *a2
         );
 };
 
 int ATOM_COMPARATOR::operator() (
-    const AtomNode &a1,
-    const AtomNode &a2
+    AtomNode *a1,
+    AtomNode *a2
 ) {
-    return a1.getPriority() > a2.getPriority();
+    return a1->getPriority() > a2->getPriority();
 }
 
 #endif

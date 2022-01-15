@@ -8,12 +8,12 @@ class AtomNode {
         int prio;
     public:
         AtomNode();
-        AtomNode(const std::string &element);
+        AtomNode(const std::string& element);
         int getPriority() const;
 };
 
 AtomNode::AtomNode() : prio(-1) {}
-AtomNode::AtomNode(const std::string &element) {
+AtomNode::AtomNode(const std::string& element) {
     prio = PRIORITY_TABLE[element];
 }
 int AtomNode::getPriority() const {

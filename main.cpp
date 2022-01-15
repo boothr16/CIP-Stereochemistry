@@ -19,9 +19,8 @@ int main(int argc, char *argv[])
             << " syntax or element not available.\n";
             return 2;
         }
-        center.buildBonds(
-            argv[1], argv[2], argv[3], argv[4]
-        );
     }
+    center.buildBonds(argv[1], argv[2], argv[3], argv[4]);
+    center.getMinPriorityAtom();
     return 0;
 }
