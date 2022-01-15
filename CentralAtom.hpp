@@ -25,7 +25,7 @@ class CentralAtom {
             const std::string& wedged,
             const std::string& dashed
         );
-        AtomNode* getMinPriorityAtom() const;
+        AtomNode* getMinPriorityAtom();
         AtomNode* getFlat1() const;
         AtomNode* getFlat2() const;
         AtomNode* getDashed() const;
@@ -75,7 +75,7 @@ const std::string& flat2, const std::string& wedged, const std::string& dashed) 
 }
 
 // Pop and return pointer to min prio atom
-AtomNode* CentralAtom::getMinPriorityAtom() const {
+AtomNode* CentralAtom::getMinPriorityAtom() {
     if (pq.top()->getPriority() == -1)
         return nullptr;
     AtomNode *minAtom = pq.top();

@@ -6,10 +6,10 @@
 
 struct TrigonalProjection {
     AtomNode *top, *left, *right;
-    TrigonalProjection(AtomNode *minAtom);
+    TrigonalProjection(CentralAtom *tetrahedral);
 };
 
-TrigonalProjection::TrigonalProjection(AtomNode *minAtom) {
+TrigonalProjection::TrigonalProjection(CentralAtom *tetrahedral) {
     if ()
 }
 
