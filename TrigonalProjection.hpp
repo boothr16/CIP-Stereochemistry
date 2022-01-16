@@ -9,47 +9,48 @@ class TrigonalProjection {
     private:
         AtomNode *top, *left, *right, *min;
     public:
-        TrigonalProjection(CentralAtom *tetrahedral);
-        std::string GET_STEREOCHEMISTRY(CentralAtom *tetrahedral) const;
+        TrigonalProjection(CentralAtom& tetrahedral);
+        std::string GET_STEREOCHEMISTRY(CentralAtom& tetrahedral) const;
 };
 
-TrigonalProjection::TrigonalProjection(CentralAtom *tetrahedral) {
-    AtomNode *minAtom = tetrahedral->getMinPriorityAtom();
-    if (minAtom == tetrahedral->getFlat1()) {
-        top = tetrahedral->getWedged();
-        left = tetrahedral->getFlat2();
-        right = tetrahedral->getDashed();
+TrigonalProjection::TrigonalProjection(CentralAtom& tetrahedral) {
+    AtomNode *minAtom = tetrahedral.getMinPriorityAtom();
+    if (minAtom == tetrahedral.getFlat1()) {
+        top = tetrahedral.getWedged();
+        left = tetrahedral.getFlat2();
+        right = tetrahedral.getDashed();
     }
-    else if (minAtom == tetrahedral->getFlat2()) {
-        top = tetrahedral->getFlat1();
-        left = tetrahedral->getWedged();
-        right = tetrahedral->getDashed();
+    else if (minAtom == tetrahedral.getFlat2()) {
+        top = tetrahedral.getFlat1();
+        left = tetrahedral.getWedged();
+        right = tetrahedral.getDashed();
     }
-    else if (minAtom == tetrahedral->getWedged()) {
-        top = tetrahedral->getFlat1();
-        left = tetrahedral->getDashed();
-        right = tetrahedral->getFlat2();
+    else if (minAtom == tetrahedral.getWedged()) {
+        top = tetrahedral.getFlat1();
+        left = tetrahedral.getDashed();
+        right = tetrahedral.getFlat2();
     }
-    else if (minAtom == tetrahedral->getDashed()) {
-        top = tetrahedral->getFlat1();
-        left = tetrahedral->getFlat2();
-        right = tetrahedral->getWedged();
+    else if (minAtom == tetrahedral.getDashed()) {
+        top = tetrahedral.getFlat1();
+        left = tetrahedral.getFlat2();
+        right = tetrahedral.getWedged();
     }
     min = minAtom;
 }
 
-std::string TrigonalProjection::GET_STEREOCHEMISTRY(CentralAtom *tetrahedral) const {
+std::string TrigonalProjection::GET_STEREOCHEMISTRY(CentralAtom& tetrahedral) const {
     AtomNode *prevAtom = min;
     std::string message;
     // 3 more atoms on priority queue
     for (int i = 0; i < 3; i++) {
-        AtomNode *currAtom = tetrahedral->getMinPriorityAtom();
-        if (currAtom == prevAtom) {
+        AtomNode *currAtom = tetrahedral.getMinPriorityAtom();
+        if (currAtom->getPriority() == prevAtom->getPriority()) {
             message = "Not a stereocenter. Achiral due to two or more identical bonding groups.\n";
             return message;
         }
         prevAtom = currAtom;
     }
+    tetrahedral.getMinPriorityAtom();
     // At this point, prevAtom is the highest priority atom
     if (prevAtom == top) {
         message = (left->getPriority() > right->getPriority()) ?
