@@ -3,17 +3,17 @@
 
 #include <string>
 #include <iostream>
-#include "CentralAtom.hpp"
+#include "Tetrahedral.hpp"
 
 class TrigonalProjection {
     private:
         AtomNode *top, *left, *right, *min;
     public:
-        TrigonalProjection(CentralAtom& tetrahedral);
-        std::string GET_STEREOCHEMISTRY(CentralAtom& tetrahedral) const;
+        TrigonalProjection(Tetrahedral& tetrahedral);
+        std::string GET_STEREOCHEMISTRY(Tetrahedral& tetrahedral) const;
 };
 
-TrigonalProjection::TrigonalProjection(CentralAtom& tetrahedral) {
+TrigonalProjection::TrigonalProjection(Tetrahedral& tetrahedral) {
     AtomNode *minAtom = tetrahedral.getMinPriorityAtom();
     if (minAtom == tetrahedral.getFlat1()) {
         top = tetrahedral.getWedged();
@@ -38,7 +38,7 @@ TrigonalProjection::TrigonalProjection(CentralAtom& tetrahedral) {
     min = minAtom;
 }
 
-std::string TrigonalProjection::GET_STEREOCHEMISTRY(CentralAtom& tetrahedral) const {
+std::string TrigonalProjection::GET_STEREOCHEMISTRY(Tetrahedral& tetrahedral) const {
     AtomNode *prevAtom = min;
     std::string message;
     // 3 more atoms on priority queue

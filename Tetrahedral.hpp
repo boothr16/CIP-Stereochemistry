@@ -1,12 +1,12 @@
-#ifndef CENTRALATOM_HPP
-#define CENTRALATOM_HPP
+#ifndef TETRAHEDRAL_HPP
+#define TETRAHEDRAL_HPP
 
 #include <queue>
 #include <iostream>
 #include "AtomNode.hpp"
 #include "ATOM_COMPARATOR.hpp"
 
-class CentralAtom {
+class Tetrahedral {
     private:
         AtomNode *flat1, *flat2, *wedged, *dashed;
         void setFlat1(const std::string& symbol);
@@ -17,8 +17,8 @@ class CentralAtom {
         std::priority_queue<AtomNode*, std::vector<AtomNode*>,
         ATOM_COMPARATOR> pq;
     public:
-        CentralAtom();
-        ~CentralAtom();
+        Tetrahedral();
+        ~Tetrahedral();
         void buildBonds(
             const std::string& flat1,
             const std::string& flat2,
@@ -32,41 +32,41 @@ class CentralAtom {
         AtomNode* getWedged() const;
 };
 
-CentralAtom::CentralAtom() {
+Tetrahedral::Tetrahedral() {
     flat1 = nullptr;
     flat2 = nullptr;
     dashed = nullptr;
     wedged = nullptr;
 }
 
-CentralAtom::~CentralAtom() {
+Tetrahedral::~Tetrahedral() {
     delete flat1;
     delete flat2;
     delete dashed;
     delete wedged;
 }
 
-void CentralAtom::setFlat1(const std::string& symbol) {
+void Tetrahedral::setFlat1(const std::string& symbol) {
     flat1 = new AtomNode(symbol);
     pq.push(flat1);
 }
 
-void CentralAtom::setFlat2(const std::string& symbol) {
+void Tetrahedral::setFlat2(const std::string& symbol) {
     flat2 = new AtomNode(symbol);
     pq.push(flat2);
 }
 
-void CentralAtom::setDashed(const std::string& symbol) {
+void Tetrahedral::setDashed(const std::string& symbol) {
     dashed = new AtomNode(symbol);
     pq.push(dashed);
 }
 
-void CentralAtom::setWedged(const std::string& symbol) {
+void Tetrahedral::setWedged(const std::string& symbol) {
     wedged = new AtomNode(symbol);
     pq.push(wedged);
 }
 
-void CentralAtom::buildBonds(const std::string& flat1, 
+void Tetrahedral::buildBonds(const std::string& flat1, 
 const std::string& flat2, const std::string& wedged, const std::string& dashed) {
     setFlat1(flat1);
     setFlat2(flat2);
@@ -75,7 +75,7 @@ const std::string& flat2, const std::string& wedged, const std::string& dashed) 
 }
 
 // Pop and return pointer to min prio atom
-AtomNode* CentralAtom::getMinPriorityAtom() {
+AtomNode* Tetrahedral::getMinPriorityAtom() {
     if (pq.top()->getPriority() == -1)
         return nullptr;
     AtomNode *minAtom = pq.top();
@@ -83,19 +83,19 @@ AtomNode* CentralAtom::getMinPriorityAtom() {
     return minAtom;
 }
 
-AtomNode* CentralAtom::getFlat1() const {
+AtomNode* Tetrahedral::getFlat1() const {
     return flat1;
 }
 
-AtomNode* CentralAtom::getFlat2() const {
+AtomNode* Tetrahedral::getFlat2() const {
     return flat2;
 }
 
-AtomNode* CentralAtom::getDashed() const {
+AtomNode* Tetrahedral::getDashed() const {
     return dashed;
 }
 
-AtomNode* CentralAtom::getWedged() const {
+AtomNode* Tetrahedral::getWedged() const {
     return wedged;
 }
 
