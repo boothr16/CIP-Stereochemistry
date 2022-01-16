@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Tetrahedral.hpp"
 
+// TrigonalProjection API
 class TrigonalProjection {
     private:
         AtomNode *top, *left, *right, *min;
@@ -13,6 +14,7 @@ class TrigonalProjection {
         std::string GET_STEREOCHEMISTRY(Tetrahedral& tetrahedral) const;
 };
 
+// TrigonalProjection Implementation
 TrigonalProjection::TrigonalProjection(Tetrahedral& tetrahedral) {
     AtomNode *minAtom = tetrahedral.getMinPriorityAtom();
     if (minAtom == tetrahedral.getFlat1()) {
@@ -38,10 +40,11 @@ TrigonalProjection::TrigonalProjection(Tetrahedral& tetrahedral) {
     min = minAtom;
 }
 
+// Determines if TrigonalProjection is achiral, R, or S stereochemistry.
 std::string TrigonalProjection::GET_STEREOCHEMISTRY(Tetrahedral& tetrahedral) const {
     AtomNode *prevAtom = min;
     std::string message;
-    // 3 more atoms on priority queue
+    // 3 more atoms on priority queue (lowest priority atom already popped off from constructor call)
     for (int i = 0; i < 3; i++) {
         AtomNode *currAtom = tetrahedral.getMinPriorityAtom();
         if (currAtom->getPriority() == prevAtom->getPriority()) {

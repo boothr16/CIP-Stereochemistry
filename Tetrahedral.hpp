@@ -6,6 +6,7 @@
 #include "AtomNode.hpp"
 #include "ATOM_COMPARATOR.hpp"
 
+// Tetrahedral API
 class Tetrahedral {
     private:
         AtomNode *flat1, *flat2, *wedged, *dashed;
@@ -32,6 +33,7 @@ class Tetrahedral {
         AtomNode* getWedged() const;
 };
 
+// Tetrahedral Implementation
 Tetrahedral::Tetrahedral() {
     flat1 = nullptr;
     flat2 = nullptr;
@@ -74,7 +76,7 @@ const std::string& flat2, const std::string& wedged, const std::string& dashed) 
     setDashed(dashed);
 }
 
-// Pop and return pointer to min prio atom
+// Pop and return pointer to min priority atom
 AtomNode* Tetrahedral::getMinPriorityAtom() {
     if (pq.top()->getPriority() == -1)
         return nullptr;

@@ -3,6 +3,7 @@
 
 #include "AtomNode.hpp"
 
+// ATOM_COMPARATOR class passed to STL priority queue constructor to build MIN-heap of AtomNode pointers
 class ATOM_COMPARATOR {
     public:
         int operator() (
