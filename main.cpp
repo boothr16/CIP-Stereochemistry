@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 {
     if (argc != 5) {
         std::cout << "Usage:"
-        << " <flat atom 1> <flat atom 2> <wedged atom>"
+        << " ./cip <flat atom 1> <flat atom 2> <wedged atom>"
         << " <dashed atom>\n";
         return 1;
     }
