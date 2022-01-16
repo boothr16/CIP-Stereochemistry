@@ -70,8 +70,8 @@ void CentralAtom::buildBonds(const std::string& flat1,
 const std::string& flat2, const std::string& wedged, const std::string& dashed) {
     setFlat1(flat1);
     setFlat2(flat2);
-    setDashed(wedged);
-    setWedged(dashed);
+    setWedged(wedged);
+    setDashed(dashed);
 }
 
 // Pop and return pointer to min prio atom
