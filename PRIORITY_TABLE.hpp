@@ -13,8 +13,8 @@ std::unordered_map<std::string, int> PRIORITY_TABLE = {
     {"F", 19},
     {"P", 31},
     {"S", 32},
-    {"Cl", 35},
-    {"Br", 79},
+    {"CL", 35},
+    {"BR", 79},
     {"I", 126}
 };
 
