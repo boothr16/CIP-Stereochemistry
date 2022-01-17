@@ -2,7 +2,6 @@
 #define TRIGONALPROJECTION_HPP
 
 #include <string>
-#include <iostream>
 #include "Tetrahedral.hpp"
 
 // TrigonalProjection API

@@ -1,4 +1,3 @@
-#include <iostream>
 #include "PRIORITY_TABLE.hpp"
 #include "Tetrahedral.hpp"
 #include "AtomNode.hpp"

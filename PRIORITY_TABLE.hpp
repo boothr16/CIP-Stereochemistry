@@ -5,7 +5,7 @@
 #include <string>
 
 // PRIORITY_TABLE maps atomic symbols to their priorities (atomic masses)
-std::unordered_map<std::string, int> PRIORITY_TABLE = {
+static std::unordered_map<std::string, int> PRIORITY_TABLE = {
     {"H", 1},
     {"C", 12},
     {"N", 14},
