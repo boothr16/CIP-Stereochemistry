@@ -19,4 +19,20 @@ The general idea:
 2. `cd` into the cloned CIP-Stereochemistry directory.
 3. Compile project using `make` from the command line.
 4. Use `./cip <substituent atom 1> <substituent atom 2> <substituent atom 3> <substituent atom 4>` from the command line. Refer to the examples below to see how the substituents map to atom positions.
-  * `make clean` can be used to clean up the directory.
+* `make clean` can be used to clean up the directory.
+
+## Example input and output
+
+**NOTE: All images were taken and output verified from Wiley's ChemWindow software.**
+
+### Example 1
+
+### Example 2
+
+### Example 3
+
+### Example 4
+
+### Example 5
+
+### Example 6
