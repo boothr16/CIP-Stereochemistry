@@ -57,6 +57,6 @@ The general idea:
 
 ## TO DO
 1. Scale this application up for larger molecules containing polyatomic substituents like alkyl chains, amine groups, hydroxyl groups, etc. Here are some changes I would make to this application's design:
-  1. Represent the molecule as a directed graph of AtomNode objects.
+  1. Represent the molecule as a directed graph of `AtomNode` objects. In this case, I would provide an overloaded assignment operator and copy contructor for the `AtomNode` class, since multiple tetrahedral geometries would be possible for larger molecules, and the dynamically allocated members of `AtomNode` need to be treated in a memory-safe manner.
   2. Use smart pointers in place of raw pointers. Specifically, `shared_ptr`'s `use_count()` can be used to track the number of substituents bonded to a particular atom.
   3. Design a recursive method to assign priorities and determine stereochemistry for all tetrahedral geometries in the molecule. Perhaps use depth-first search to traverse the backbone of large molecules to determine priorities in the case of a tiebreaker (chiral molecules cannot have two bonding groups of equal priority, so in the case of a tie, the next atom in the chain should be compared).
